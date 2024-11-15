@@ -11,41 +11,47 @@ struct TaylorAlbums: View {
     
     var body: some View {
         
-        ZStack {
+        NavigationStack{
             
-            Color.greige.ignoresSafeArea()
-            
-            VStack(alignment: .leading){
+            ZStack {
                 
-                Text("TAYLOR SWIFT ALBUMS")
-                    .font(.title)
-                    .foregroundStyle(.black)
-                    .fontWeight(.bold)
+                Color.greige.ignoresSafeArea()
                 
-                ScrollView{
+                VStack(alignment: .leading){
                     
-                    ForEach (taylorAlbumsCovers, id:\.self) { album in
+                    Text("TAYLOR SWIFT ALBUMS")
+                        .font(.title)
+                        .foregroundStyle(.black)
+                        .fontWeight(.bold)
+                    
+                    ScrollView{
                         
-                        ZStack{
-                            Rectangle()
-                                .frame(width: 350, height : 120)
-                                .cornerRadius(10)
-                                .foregroundStyle(album.color)
+                        ForEach (taylorAlbums, id:\.self) { album in
                             
-                            HStack {
-                                //
-                                Text(album.name)
-                                    .foregroundStyle(.white)
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                Spacer()
-                                Image(album.cover)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                    .cornerRadius(5)
-                            }.padding(10)
-                                .frame(width: 350, height : 120)
+                            NavigationLink(destination: AlbumView(albumData: album)) {
+                                
+                                ZStack{
+                                    Rectangle()
+                                        .frame(width: 350, height : 120)
+                                        .cornerRadius(10)
+                                        .foregroundStyle(album.color)
+                                    
+                                    HStack {
+                                        //
+                                        Text(album.name)
+                                            .foregroundStyle(.white)
+                                            .font(.title2)
+                                            .fontWeight(.bold)
+                                        Spacer()
+                                        Image(album.cover)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 100)
+                                            .cornerRadius(5)
+                                    }.padding(10)
+                                        .frame(width: 350, height : 120)
+                                }
+                            }
                         }
                     }
                 }

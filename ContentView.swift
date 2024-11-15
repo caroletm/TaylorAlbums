@@ -16,11 +16,11 @@ struct ContentView: View {
             TabView {
                 TaylorAlbums()
                     .tabItem {
-                        Label("Music", image: "musicIcon")
+                        Label("Musique", image: "musicIcon")
                     }
                 SearchLyrics()
                     .tabItem {
-                        Label("Search", image: "searchIcon")
+                        Label("Recherche", image: "searchIcon")
                     }
                 LePianoDeTaylor()
                     .tabItem {
@@ -28,7 +28,7 @@ struct ContentView: View {
                     }
                 MyFavorites()
                     .tabItem {
-                        Label("Favorites", image: "heartIcon")
+                        Label("Favoris", image: "heartIcon")
                     }
             }
         }

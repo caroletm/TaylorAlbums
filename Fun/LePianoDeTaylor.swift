@@ -50,7 +50,7 @@ struct LePianoDeTaylor: View {
                 Text("Le piano de Taylor")
                     .font(.title)
                     .fontWeight(.bold)
-                Text("Score:")
+                Text("Niveau:")
                 //            Text("\(tempsDeReponse)")
                 //                .font(.title)
                 //                .foregroundColor(tempsDeReponse > 0 ? .black : .red)
