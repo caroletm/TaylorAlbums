@@ -17,7 +17,7 @@ struct LePianoDeTaylor: View {
     @State var couleurAffichée : [Color] = []
     @State var motAffiché2 : [String] = []
     @State var couleurAffichée2 : [Color] = []
-    @State var resultat : Color = .backColorBlue
+    @State var resultat : Color = .greige
     
     @State var tempsDeReponse = 1
     @State private var isTimerActive = false
@@ -56,15 +56,15 @@ struct LePianoDeTaylor: View {
         
         ZStack {
             
-            Color.backColorBlue.ignoresSafeArea(edges: .top)
+            Color.greige.ignoresSafeArea(edges: .top)
             
             VStack(spacing:10) {
                 Text("Le piano de Taylor")
-                    .font(.custom("Manrope-Bold", size: 26))
-                    .foregroundStyle(Color.white)
+                    .font(.custom("FjallaOne-Regular", size: 26))
+                    .foregroundStyle(Color.black)
                 Text("Niveau: " + String(level))
                     .font(.custom("Manrope-Regular", size: 18))
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(Color.black)
                 //            Text("\(tempsDeReponse)")
                 //                .font(.title)
                 //                .foregroundColor(tempsDeReponse > 0 ? .black : .red)
@@ -78,77 +78,47 @@ struct LePianoDeTaylor: View {
                     .cornerRadius(10)
                     .frame(width:80, height: 80)
                 
-                //partition
                 
                 ZStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .frame(width: 300 , height: 120)
-                        .foregroundStyle(.white)
+                    
+                    Partition()
                     
                     ZStack{
                         
-                        VStack (spacing: 14){
-                            ForEach (0...4, id : \.self) { i in
-                                Rectangle()
-                                    .frame(width: 300, height: 2)
-                            }
-                        }
+                        PartitionLignes()
                         
-                        if motAffiché2.last == "do" {
+                        switch motAffiché2.last {
+                            
+                        case "do":
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 2, height: 60)
-                                    .offset(x: 8,y: -30)
-                                Circle()
-                                    .frame(width: 18)
+                                MusicNote()
                             }.offset(x: -100, y: 50)
-                        }
-                        
-                        if motAffiché2.last == "ré" {
+                            
+                        case "ré":
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 2, height: 60)
-                                    .offset(x: 8,y: -30)
-                                Circle()
-                                    .frame(width: 18)
-                            }
-                            .offset(x: -50, y: 43)
-                        }
-                        
-                        if motAffiché2.last == "mi" {
+                                MusicNote()
+                            }.offset(x: -50, y: 43)
+                            
+                        case "mi":
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 2, height: 60)
-                                    .offset(x: 8,y: -30)
-                                Circle()
-                                    .frame(width: 18)
-                            }
-                            .offset(x: 0, y: 30)
-                        }
-                        
-                        if motAffiché2.last == "fa" {
+                                MusicNote()
+                            }.offset(x: 0, y: 30)
+                            
+                        case "fa":
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 2, height: 60)
-                                    .offset(x: 8,y: -30)
-                                Circle()
-                                    .frame(width: 18)
-                            }
-                            .offset(x: 50, y: 20)
-                        }
-                        
-                        if motAffiché2.last == "sol" {
+                                MusicNote()
+                            }.offset(x: 50, y: 20)
+                        case "sol":
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 2, height: 60)
-                                    .offset(x: 8,y: -30)
-                                Circle()
-                                    .frame(width: 18)
-                            }
-                            .offset(x: 100, y: 10)
+                                MusicNote()
+                            }.offset(x: 100, y: 10)
+                            
+                        default:
+                            ZStack{
+                                Text("")
+                            }.offset(x: 0, y: 0)
                         }
                     }
-                    
                 }
                 
                 ZStack {
@@ -172,7 +142,6 @@ struct LePianoDeTaylor: View {
                                         .font(.title2)
                                         .fontWeight(.bold)
                                         .offset(x: 0, y: 20)
-                                    
                                 }
                             }
                         }
@@ -207,14 +176,14 @@ struct LePianoDeTaylor: View {
                     couleurAffichée2.removeAll()
                     level = 1
                     mot = ""
-                    resultat = .backColorBlue
+                    resultat = .greige
                 } label: {
                     Image(systemName : "arrow.trianglehead.clockwise")
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.black)
                         .font(.title2)
                         .fontWeight(.bold)
                 }       .offset(x: 0, y: 100)
-    
+                
                 Button {
                     tempsDeReponse = level
                     motAffiché.removeFirst()
@@ -243,7 +212,7 @@ struct LePianoDeTaylor: View {
                         isTimerActive = false
                         
                     }
-       
+                    
                 }
                 modalWinner()
             }
@@ -261,3 +230,34 @@ struct LePianoDeTaylor: View {
     LePianoDeTaylor()
 }
 
+
+struct MusicNote: View {
+        
+    var body: some View {
+        Rectangle()
+            .frame(width: 2, height: 60)
+            .offset(x: 8,y: -30)
+        Circle()
+            .frame(width: 18)
+            .foregroundStyle(.black)
+    }
+}
+
+struct Partition: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 5)
+            .frame(width: 300 , height: 120)
+            .foregroundStyle(.white)
+    }
+}
+
+struct PartitionLignes: View {
+    var body: some View {
+        VStack (spacing: 14){
+            ForEach (0...4, id : \.self) { i in
+                Rectangle()
+                    .frame(width: 300, height: 2)
+            }
+        }
+    }
+}

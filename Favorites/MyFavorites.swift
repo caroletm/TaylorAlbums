@@ -16,18 +16,28 @@ struct MyFavorites: View {
         NavigationStack{
 
                 ZStack{
+                    
                     Color.backColorBlue.ignoresSafeArea(edges:.top)
                     
                     if FavoriteSongModel.inFavorites.isEmpty {
-                        Text("Vous n'avez pas encore de favoris")
-                            .foregroundStyle(.white)
-                            .font(.custom("Manrope-Regular", size: 18))
+                        Spacer()
+                        VStack {
+                            Text("MES CHANSONS FAVORITES")
+                                .foregroundStyle(.white)
+                                .font(.custom("FjallaOne-Regular", size: 26))
+                            
+                            Spacer()
+                            Text("Vous n'avez pas encore de favoris")
+                                .foregroundStyle(.white)
+                                .font(.custom("Manrope-Regular", size: 18))
+                            Spacer()
+                        }
                     }else{
                         
                     VStack {
-                        Text("Mes chansons favorites")
+                        Text("MES CHANSONS FAVORITES")
                             .foregroundStyle(.white)
-                            .font(.custom("Manrope-Bold", size: 24))
+                            .font(.custom("FjallaOne-Regular", size: 26))
                         
                         Spacer()
                         

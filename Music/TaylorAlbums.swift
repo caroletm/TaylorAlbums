@@ -20,7 +20,7 @@ struct TaylorAlbums: View {
                 VStack{
                     
                     Text("TAYLOR SWIFT ALBUMS")
-                        .font(.custom("Manrope-Bold", size: 24))
+                        .font(.custom("FjallaOne-Regular", size: 26))
                         .foregroundStyle(.white)
                         .fontWeight(.bold)
                     

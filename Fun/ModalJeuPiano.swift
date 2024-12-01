@@ -62,7 +62,7 @@ struct ModalJeuPiano: View {
                     motAffiché = [""]
                     motAffiché2.removeAll()
                     mot = ""
-                    resultat = .backColorBlue
+                    resultat = .greige
                     
                 } label: {
                     Text("Continuer")

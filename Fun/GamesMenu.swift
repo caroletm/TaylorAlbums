@@ -17,8 +17,8 @@ struct GamesMenu: View {
                 
                 VStack (spacing:20) {
                     
-                    Text("Love is a game, wanna play?")
-                        .font(.custom("Manrope-Bold", size: 24))
+                    Text("LOVE IS A GAME, WANNA PLAY?")
+                        .font(.custom("FjallaOne-Regular", size: 24))
                         .foregroundStyle(.white)
                     
                     NavigationLink(destination: LePianoDeTaylor()) {
