@@ -19,11 +19,22 @@ struct SearchLyrics: View {
             
             VStack {
                 
-                TextField("Search lyrics", text: $recherche)
+                TextField("Recherchez vos paroles", text: $recherche)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
                     .padding()
+                
+                if recherche.isEmpty {
+                    Text("Recherchez vos paroles ici")
+                }else {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 280, height : 120)
+                        Text(recherche)
+                            .foregroundStyle(Color.white)
+                    }
+                }
                 Spacer()
                 
             }

@@ -15,20 +15,26 @@ struct GamesMenu: View {
             ZStack {
                 Color.backColorBlue.ignoresSafeArea(edges: .top)
                 
-                VStack (spacing:20) {
-                    
-                    Text("LOVE IS A GAME, WANNA PLAY?")
-                        .font(.custom("FjallaOne-Regular", size: 24))
-                        .foregroundStyle(.white)
-                    
-                    NavigationLink(destination: LePianoDeTaylor()) {
-                        BoutonJeu(colorJeu:.brown, nomJeu:"Le Piano de Taylor", imageJeu:"taylorSwift-piano")
+                    VStack (spacing:20) {
+                        
+                        Text("LOVE IS A GAME, WANNA PLAY?")
+                            .font(.custom("FjallaOne-Regular", size: 24))
+                            .foregroundStyle(.white)
+                        
+                        ScrollView{
+                        
+                        NavigationLink(destination: LePianoDeTaylor()) {
+                            BoutonJeu(colorJeu: .brown, nomJeu:"Le Piano de Taylor", imageJeu:"taylorSwift-piano")
+                        }
+                        
+                        NavigationLink(destination: TaylorWords()) {BoutonJeu2(colorJeu:.midnightsLavender, nomJeu:"Out of the words", imageJeu:"taylorWords")
+                        }
+                        
+                        BoutonJeu(colorJeu:.redRed, nomJeu:"Lyrics Lover", imageJeu:"taylorSwift-singLyrics")
+                        
+                        BoutonJeu2(colorJeu:.debutBlue, nomJeu:"Taylor Quizz ", imageJeu:"taylorSwift-Quizz")
+                        
                     }
-                    
-                    BoutonJeu2(colorJeu:.midnightsBlue, nomJeu:"Taylor Quizz ", imageJeu:"taylorSwift-Quizz")
-                    
-                    BoutonJeu(colorJeu:.redRed, nomJeu:"Paroles de Swifties! ", imageJeu:"taylorSwift-singLyrics")
-                    
                 }
             }
         }
@@ -52,7 +58,7 @@ struct BoutonJeu: View {
             HStack{
                 Text(nomJeu)
                     .foregroundStyle(.white)
-                    .font(.custom("Manrope-Bold", size: 25))
+                    .font(.custom("Manrope-Bold", size: 22))
                 
                 Spacer()
                 
@@ -83,7 +89,7 @@ struct BoutonJeu2: View {
                 Spacer()
                 Text(nomJeu)
                     .foregroundStyle(.white)
-                    .font(.custom("Manrope-Bold", size: 25))
+                    .font(.custom("Manrope-Bold", size: 22))
                 
             }.padding(20)
             
