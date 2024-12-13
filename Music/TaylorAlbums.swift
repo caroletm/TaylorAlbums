@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TaylorAlbums: View {
     
+    @EnvironmentObject var FavoriteSongModel : FavoriteSongModel
+    
     var body: some View {
         
         NavigationStack{
@@ -63,5 +65,5 @@ struct TaylorAlbums: View {
 }
 
 #Preview {
-TaylorAlbums()
+TaylorAlbums().environmentObject(FavoriteSongModel())
 }

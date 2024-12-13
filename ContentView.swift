@@ -14,7 +14,7 @@ struct ContentView: View {
         ZStack {
             
             TabView {
-                TaylorAlbums()
+                TaylorAlbums2()
                     .tabItem {
                         Label("Musique", image: "musicIcon")
                             .fontWeight(.bold)
